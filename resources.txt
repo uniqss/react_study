@@ -5,13 +5,25 @@ https://reactjs.org/tutorial/tutorial.html
 
 
 
-
 todo:
 https://reactjs.org/community/courses.html
 
 
+Full Stack MERN Project - Build and Deploy an App | React + Redux, Node, Express, MongoDB
+https://www.youtube.com/playlist?list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu
 
 
 Deep Dive Into Modern Web Development:
 https://fullstackopen.com/en/about/
+
+
+React Blog Website Design Tutorial | React UI Full Course for Beginners:
+https://www.bilibili.com/video/BV1X64y1Y7TQ
+翻译太狗屎，建议直接访问下面的链接
+https://www.youtube.com/watch?v=tlTdbc5byAs
+
+
+Next.js Crash Course for Beginners 2021 - Learn NextJS from Scratch in this 100% Free Tutorial!:
+https://www.youtube.com/watch?v=MFuwkrseXVE
+
 
