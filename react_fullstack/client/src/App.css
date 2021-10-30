@@ -51,3 +51,7 @@ body {
   border-top: 1px solid lightgray;
   display: flex;
 }
+
+span {
+  color: red;
+}
