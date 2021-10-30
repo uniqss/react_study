@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "study",
+    "password": "111111",
+    "database": "tutorialdb",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "study",
+    "password": "111111",
+    "database": "tutorialdb",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "study",
+    "password": "111111",
+    "database": "tutorialdb",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

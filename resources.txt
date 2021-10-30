@@ -3,6 +3,9 @@ tutorial:
 https://reactjs.org/tutorial/tutorial.html
 
 
+ing:
+Full Stack Web Development Course - ReactJS, NodeJS, Express, MySQL
+https://www.youtube.com/playlist?list=PLpPqplz6dKxUaZ630TY1BFIo5nP-_x-nL
 
 
 todo:
