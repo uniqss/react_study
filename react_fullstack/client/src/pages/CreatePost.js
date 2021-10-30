@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 export default function CreatePost() {
     const initialValues = {
@@ -16,9 +17,11 @@ export default function CreatePost() {
         username: Yup.string().min(3).max(15).required()
     });
 
+    let history = useHistory();
     const onSubmit = (data) => {
         axios.post("http://127.0.0.1:3001/posts", data).then((response)=>{
           console.log("It works!");
+          history.push("/");
         });
     };
 
