@@ -19,11 +19,21 @@ export default function Post() {
     }, []);
 
     const addComment = (data) => {
-        axios.post("http://127.0.0.1:3001/comments", { commentBody: newComment, PostId: id }).then((response) => {
-            const commentToAdd = {commentBody: newComment};
-            setComments([...comments, commentToAdd]);
-            console.log("comment added!");
-            setNewComment("");
+        axios.post("http://127.0.0.1:3001/comments", { commentBody: newComment, PostId: id },
+        {
+            headers: {
+                accessToken: sessionStorage.getItem("accessToken"),
+            }
+        }).then((response) => {
+            if (response.data.error) {
+                console.log(response.data.error);
+                // alert(response.data.error);
+            } else {
+                const commentToAdd = {commentBody: newComment};
+                setComments([...comments, commentToAdd]);
+                console.log("comment added!");
+                setNewComment("");
+            }
         });
     };
 
