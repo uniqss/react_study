@@ -32,7 +32,7 @@ export default function CreatePost() {
                     <label>Title:</label>
                     <ErrorMessage name="title" component="span"/>
                     <Field
-                        // autocomplete="off"
+                        autoComplete="off"
                         id="inputCreatePost"
                         name="title"
                         placeholder="(Ex.Title...)"
@@ -40,7 +40,7 @@ export default function CreatePost() {
                     <label>postText:</label>
                     <ErrorMessage name="postText" component="span"/>
                     <Field
-                        // autocomplete="off"
+                        autoComplete="off"
                         id="inputCreatePost"
                         name="postText"
                         placeholder="(Ex.Post Text...)"
@@ -48,7 +48,7 @@ export default function CreatePost() {
                     <label>username:</label>
                     <ErrorMessage name="username" component="span"/>
                     <Field
-                        // autocomplete="off"
+                        autoComplete="off"
                         id="inputCreatePost"
                         name="username"
                         placeholder="(Ex.Username...)"
