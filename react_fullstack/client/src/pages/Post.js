@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+import { SERVER_HOST } from '../HostCfg'
 
 export default function Post() {
     let { id } = useParams();
@@ -9,17 +10,17 @@ export default function Post() {
     const [newComment, setNewComment] = useState("");
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:3001/posts/byId/${id}`).then((response) => {
+        axios.get(`${SERVER_HOST}/posts/byId/${id}`).then((response) => {
             setPostObject(response.data);
         });
 
-        axios.get(`http://127.0.0.1:3001/comments/${id}`).then((response) => {
+        axios.get(`${SERVER_HOST}/comments/${id}`).then((response) => {
             setComments(response.data);
         });
     }, []);
 
     const addComment = (data) => {
-        axios.post("http://127.0.0.1:3001/comments", { commentBody: newComment, PostId: id },
+        axios.post(`${SERVER_HOST}/comments`, { commentBody: newComment, PostId: id },
         {
             headers: {
                 accessToken: sessionStorage.getItem("accessToken"),

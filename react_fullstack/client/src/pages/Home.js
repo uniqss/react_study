@@ -2,6 +2,7 @@ import React from 'react'
 import axios from "axios";
 import {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import { SERVER_HOST } from '../HostCfg'
 
 export default function Home() {
 
@@ -9,7 +10,7 @@ export default function Home() {
     let history = useHistory();
 
     useEffect(()=>{
-      axios.get("http://127.0.0.1:3001/posts").then((response)=>{
+      axios.get(`${SERVER_HOST}/posts`).then((response)=>{
         // console.log(response.data);
         setListOfPosts(response.data);
       });

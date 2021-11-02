@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import { SERVER_HOST } from '../HostCfg'
 
 function Login() {
     const [username, setUserName] = useState("");
@@ -10,7 +11,7 @@ function Login() {
 
     const login = () => {
         const data = {username: username, password: password};
-        axios.post("http://127.0.0.1:3001/auth/login", data).then((response)=> {
+        axios.post(`${SERVER_HOST}/auth/login`, data).then((response)=> {
             if (response.data.error) {
                 alert(response.data.error);
                 return;

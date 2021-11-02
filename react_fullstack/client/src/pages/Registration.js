@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import axios from 'axios';
+import { SERVER_HOST } from '../HostCfg'
 
 function Registration() {
     const initialValues = {
@@ -15,7 +16,7 @@ function Registration() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://127.0.0.1:3001/auth", data).then(() => {
+        axios.post(`${SERVER_HOST}/auth`, data).then(() => {
             console.log(data);
         });
     };
