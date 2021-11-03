@@ -1,9 +1,9 @@
 import React from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import {ErrorMessage, Field, Form, Formik} from 'formik'
 import * as Yup from 'yup';
 import axios from "axios";
-import { useHistory } from 'react-router-dom';
-import { SERVER_HOST } from '../HostCfg'
+import {useHistory} from 'react-router-dom';
+import {SERVER_HOST} from '../HostCfg'
 
 export default function CreatePost() {
     const initialValues = {
@@ -20,15 +20,15 @@ export default function CreatePost() {
 
     let history = useHistory();
     const onSubmit = (data) => {
-        axios.post(`${SERVER_HOST}/posts`, data).then((response)=>{
-          console.log("It works!");
-          history.push("/");
+        axios.post(`${SERVER_HOST}/posts`, data).then((response) => {
+            console.log("It works!");
+            history.push("/");
         });
     };
 
     return (
         <div className="createPostPage">
-            <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema} >
+            <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 <Form className="formContainer">
                     <label>Title:</label>
                     <ErrorMessage name="title" component="span"/>

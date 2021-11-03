@@ -1,22 +1,25 @@
 import axios from 'axios';
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import { SERVER_HOST } from '../HostCfg'
+import {SERVER_HOST} from '../HostCfg'
+import {AuthContext} from "../helpers/AuthContext"
 
 function Login() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    const {setAuthState} = useContext(AuthContext);
 
     let history = useHistory();
 
     const login = () => {
         const data = {username: username, password: password};
-        axios.post(`${SERVER_HOST}/auth/login`, data).then((response)=> {
+        axios.post(`${SERVER_HOST}/auth/login`, data).then((response) => {
             if (response.data.error) {
                 alert(response.data.error);
-                return;
+
             } else {
-                sessionStorage.setItem("accessToken", response.data);
+                localStorage.setItem("accessToken", response.data);
+                setAuthState(true);
                 console.log(response.data);
                 history.push("/");
             }
@@ -31,7 +34,7 @@ function Login() {
                 setPassword(event.target.value);
             }}></input>
 
-            <button onClick = {login}>Login</button>
+            <button onClick={login}>Login</button>
         </div>
     )
 }
