@@ -18,8 +18,8 @@ function Login() {
                 alert(response.data.error);
 
             } else {
-                localStorage.setItem("accessToken", response.data);
-                setAuthState(true);
+                localStorage.setItem("accessToken", response.data.token);
+                setAuthState({username: response.data.username, id: response.data.id, status: true});
                 console.log(response.data);
                 history.push("/");
             }
