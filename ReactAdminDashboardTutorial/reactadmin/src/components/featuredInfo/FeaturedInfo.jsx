@@ -2,41 +2,36 @@ import "./featuredInfo.css"
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons"
 
 export default function FeaturedInfo() {
+    const featuredData = [
+        { title: "Revanue", money: "$2,415", moneyRate: -1.4, sub: "Compared to last month" },
+        { title: "Sales", money: "$4,415", moneyRate: -11.4, sub: "Compared to last month" },
+        { title: "Cost", money: "$2,225", moneyRate: +2.4, sub: "Compared to last month" }
+    ]
     return (
         <div className="featured">
-            <div className="featuredItem">
-                <span className="featuredTitle">Revanue</span>
-                <div className="featuredMoneyContainer">
-                    <span className="featuredMoney">$2,415</span>
-                    <span className="featuredMoneyRate">
-                        -1.4
-                        <ArrowDownward className="featureIcon negative" />
-                    </span>
+            {featuredData.map((fdata) => (
+                <div className="featuredItem">
+                    <span className="featuredTitle">{fdata.title}</span>
+                    <div className="featuredMoneyContainer">
+                        <span className="featuredMoney">{fdata.money}</span>
+                        <span className="featuredMoneyRate">
+                            {fdata.moneyRate >= 0 &&
+                                <p>
+                                    +{fdata.moneyRate}
+                                    <ArrowUpward className="featureIcon" />
+                                </p>
+                            }
+                            {fdata.moneyRate < 0 &&
+                                <p>
+                                    {fdata.moneyRate}
+                                    <ArrowDownward className="featureIcon negative" />
+                                </p>
+                            }
+                        </span>
+                    </div>
+                    <span className="featuredSub">{fdata.sub}</span>
                 </div>
-                <span className="featuredSub">Compared to last month</span>
-            </div>
-            <div className="featuredItem">
-                <span className="featuredTitle">Sales</span>
-                <div className="featuredMoneyContainer">
-                    <span className="featuredMoney">$4,415</span>
-                    <span className="featuredMoneyRate">
-                        -11.4
-                        <ArrowDownward className="featureIcon negative" />
-                    </span>
-                </div>
-                <span className="featuredSub">Compared to last month</span>
-            </div>
-            <div className="featuredItem">
-                <span className="featuredTitle">Cost</span>
-                <div className="featuredMoneyContainer">
-                    <span className="featuredMoney">$2,225</span>
-                    <span className="featuredMoneyRate">
-                        +2.4
-                        <ArrowUpward className="featureIcon" />
-                    </span>
-                </div>
-                <span className="featuredSub">Compared to last month</span>
-            </div>
+            ))}
         </div>
     )
 }
